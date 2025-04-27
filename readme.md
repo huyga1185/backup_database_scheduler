@@ -2,13 +2,17 @@
 Đây là bài tập chương 3 môn tự động hoá
 
 ## Features
-Tự động backup các file '.sql' hoặc '.sql3' vào folder backup lúc 00:00 mỗi ngày và gửi email báo cáo kết quả đến đích
+
+Tự động backup các file `.sql` hoặc `.sql3` vào folder backup lúc `00:00` mỗi ngày và gửi email báo cáo kết quả đến đích
 
 ## Requirements
+
+- `python`
 - `python-dotenv`
 - `schedule`
 
 ## Installation
+
 1.  Clone repo:
 ```bash
     git clone https://github.com/huyga1185/backup_database_scheduler
@@ -26,6 +30,7 @@ Tự động backup các file '.sql' hoặc '.sql3' vào folder backup lúc 00:0
 ```
 
 ## Usage
+
 - Bước 1: clone repo và cài đặt lib cần thiết
 - Bước 2: Tạo file `.env` có nội dung sau:
 
@@ -38,7 +43,7 @@ Tự động backup các file '.sql' hoặc '.sql3' vào folder backup lúc 00:0
     EMAIL_RECEIVER= your_target_email eg:example@gmail.com
 ```
 
-- Bước 4: Sao chép file sql của bạn vào thư mục gốc của project
+- Bước 4: Sao chép file `.sql` hoặc `.sqlite3` của bạn vào thư mục gốc của project
 
 - Bước 3: Khởi chạy
 ```bash
