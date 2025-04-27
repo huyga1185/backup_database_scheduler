@@ -63,12 +63,12 @@ def backup_database():
 
             if success_files:
                 body = "Backup thành công các file:" + '\n'.join(success_files)
-                send_email("Backup Thành Công", body)
+                send_email(EMAIL_SENDER, EMAIL_RECEIVER,"Backup Thành Công", body, EMAIL_PASSWORD)
             else:
                 body = "Không tìm thấy file .sql hoặc .sqlite3 để backup."
-                send_email("Backup Thất Bại", body)
+                send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", body, EMAIL_PASSWORD)
     except Exception as e:
-        send_email("Backup Thất Bại", f"Lỗi: {str(e)}")
+        send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", f"Lỗi: {str(e)}", EMAIL_PASSWORD)
 
 schedule.every().day.at("00:00").do(backup_database)
 
