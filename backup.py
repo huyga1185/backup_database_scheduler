@@ -40,8 +40,12 @@ def backup_database():
     try:
         #kiem tra folder backup co ton tai khong
         if not os.path.exists('backup'):
-            #neu khong tao folder backup
-            os.makedirs('backup')
+            try:
+                #neu khong tao folder backup
+                os.makedirs('backup')
+            except PermissionError:
+                print("Khong co quyen tao folder!")
+                return
         
         #tao list luu tru ten cac files da backup thanh cong neu co nhieu hon 1 files can backup
         success_files = []
@@ -70,7 +74,7 @@ def backup_database():
     except Exception as e:
         send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", f"Lỗi: {str(e)}", EMAIL_PASSWORD)
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     schedule.every().day.at("00:00").do(backup_database)
 
     print("dang chay")
