@@ -61,19 +61,20 @@ def backup_database():
                 shutil.copy2(src_path, backup_file_path)
                 success_files.append(backup_file_name)
 
-            if success_files:
-                body = "Backup thành công các file:" + '\n'.join(success_files)
-                send_email(EMAIL_SENDER, EMAIL_RECEIVER,"Backup Thành Công", body, EMAIL_PASSWORD)
-            else:
-                body = "Không tìm thấy file .sql hoặc .sqlite3 để backup."
-                send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", body, EMAIL_PASSWORD)
+        if success_files:
+            body = "Backup thành công các file:" + '\n'.join(success_files)
+            send_email(EMAIL_SENDER, EMAIL_RECEIVER,"Backup Thành Công", body, EMAIL_PASSWORD)
+        else:
+            body = "Không tìm thấy file .sql hoặc .sqlite3 để backup."
+            send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", body, EMAIL_PASSWORD)
     except Exception as e:
         send_email(EMAIL_SENDER, EMAIL_RECEIVER, "Backup Thất Bại", f"Lỗi: {str(e)}", EMAIL_PASSWORD)
 
-schedule.every().day.at("00:00").do(backup_database)
+if __name__ == "__main__":
+    schedule.every().day.at("00:00").do(backup_database)
 
-print("dang chay")
+    print("dang chay")
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
