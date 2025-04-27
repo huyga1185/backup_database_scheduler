@@ -27,7 +27,7 @@ Tự động backup các file '.sql' hoặc '.sql3' vào folder backup lúc 00:0
 
 ## Usage
 - Bước 1: clone repo và cài đặt lib cần thiết
-- Bước 2: Tạo file .env có nội dung sau:
+- Bước 2: Tạo file `.env` có nội dung sau:
 
 ```bash
     #email gửi
