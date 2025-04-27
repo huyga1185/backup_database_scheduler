@@ -24,7 +24,7 @@ Tự động backup các file `.sql` hoặc `.sql3` vào folder backup lúc `00:
     pip install python-dotenv schedule
 ```
 
-3.Mở folder repo
+3. Mở folder repo
 ```bash
     cd backup_database_scheduler
 ```
