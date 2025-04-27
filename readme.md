@@ -12,6 +12,7 @@ Tự động backup các file '.sql' hoặc '.sql3' vào folder backup lúc 00:0
 1.  Clone repo:
 ```bash
     git clone https://github.com/huyga1185/backup_database_scheduler
+```
 
 2. Cài đặt thư viện
 
